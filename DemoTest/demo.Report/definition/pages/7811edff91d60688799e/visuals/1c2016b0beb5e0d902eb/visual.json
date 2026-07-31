@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "1c2016b0beb5e0d902eb",
+  "position": {
+    "x": 10,
+    "y": 0,
+    "z": 0,
+    "height": 280,
+    "width": 280,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "test"
+                        }
+                      },
+                      "Property": "a"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(test.a)",
+              "nativeQueryRef": "a 的总和"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "test"
+                    }
+                  },
+                  "Property": "b"
+                }
+              },
+              "queryRef": "test.b",
+              "nativeQueryRef": "b"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d551dfdabcd1d5111346",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "test"
+                  }
+                },
+                "Property": "a"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "91b699d06ccc0619a788",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "test"
+              }
+            },
+            "Property": "b"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
