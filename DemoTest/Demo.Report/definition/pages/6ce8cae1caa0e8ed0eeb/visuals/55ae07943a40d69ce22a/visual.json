@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "55ae07943a40d69ce22a",
+  "position": {
+    "x": 10,
+    "y": 0,
+    "z": 0,
+    "height": 280,
+    "width": 280,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Test"
+                    }
+                  },
+                  "Property": "b"
+                }
+              },
+              "queryRef": "Test.b",
+              "nativeQueryRef": "b"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Test"
+                        }
+                      },
+                      "Property": "a"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Test.a)",
+              "nativeQueryRef": "a 的总和"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ccc29ea90b98d06b58de",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Test"
+              }
+            },
+            "Property": "b"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "47c4d5d3adad6c9c5218",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Test"
+                  }
+                },
+                "Property": "a"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
