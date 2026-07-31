@@ -1,0 +1,38 @@
+table test
+	lineageTag: d7c4c669-219a-4406-b4ee-07f6ea6d0664
+
+	/// 统计列 a 的非空值数量
+	measure a计数 = COUNT('test'[a])
+		formatString: 0
+		lineageTag: aed3d982-27ac-460c-9d99-225c0abf1d32
+
+	column a
+		dataType: int64
+		formatString: 0
+		lineageTag: 989b7444-e5aa-497d-9f66-6bb1525c1855
+		summarizeBy: sum
+		sourceColumn: a
+
+		annotation SummarizationSetBy = Automatic
+
+	column b
+		dataType: string
+		lineageTag: 25262f93-cc8a-4bf4-b5be-09c351b0e2ba
+		summarizeBy: none
+		sourceColumn: b
+
+		annotation SummarizationSetBy = Automatic
+
+	partition test = m
+		mode: import
+		source =
+				let
+				  源 = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUUpMVIrViVYyAjLT05ViYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [a = _t, b = _t]),
+				  已更改列类型 = Table.TransformColumnTypes(源, {{"a", Int64.Type}, {"b", type text}}, "zh-Hans")
+				in
+				  已更改列类型
+
+	annotation PBI_NavigationStepName = 导航
+
+	annotation PBI_ResultType = Table
+
